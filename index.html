@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div.main, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<body>
+    <div class="main">
+        <div class="player">
+            <div class="title">
+               <h1 id="songname">rihanna</h1>
+               <h3 id="artist">diljit dosanjh</h3>
+            </div>
+            <div class="image">
+               <img src="images/riri.jpg" alt="riri" id="songimg">
+            </div>
+            <audio src="music/song1.mp3" ></audio>
+            <audio src="music/Suit Suit (Hindi Medium) 320 Kbps.mp3" id="song2"></audio>
+            
+            <div class="controls">
+                <div class="extra">
+                    <i class="fas fa-random" id="shuffle"></i>
+                    <i class="fas fa-undo-alt" id="loop"></i>   
+                </div>
+                <div class="main_controls">
+                <i class="fas fa-backward" id="previous"></i>
+                <i class="fas fa-play" id="play"></i>
+                <i class="fas fa-forward" id="next"></i>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <script>
+       const play=document.getElementById('play');
+       const music=document.querySelector('audio');
+       const songname=document.getElementById('songname');
+       const artist=document.getElementById('artist');
+       const next=document.getElementById('next');
+       const previous=document.getElementById('previous');
+       const image=document.getElementById('songimg');
+       let loops=document.getElementById('loop');
+       const shuffle= document.getElementById('shuffle');
+       let isplaying= false;
+       let inloop =false;
+       let inshuffle= false;
+       const playmusic= () => {
+           isplaying=true;
+           music.play();
+           play.classList.replace('fa-play','fa-pause')
+           play.style.backgroundColor= "transparent";
+           play.style.color="white";
+           music.onended = function() {
+           nextsong();
+};
+       }
+       const pausemusic = () => {
+           isplaying=false;
+           music.pause();
+           play.classList.replace('fa-pause','fa-play');
+           play.style.backgroundColor= "white";
+           play.style.color="black";
+       }
+       play.addEventListener('click', () =>{
+           if(isplaying)
+           {
+               pausemusic();
+           }
+           else{
+               playmusic();
+           }
+        })
+
+       const songdata= [
+           {
+           name: "song1",
+           song: "rihana",
+           artist: "diljit dosanjh",
+           image : "riri",
+       },
+       {
+           name: "song2",
+           song: "suit suit",
+           artist: "guru randhawa",
+           image : "suit",
+       },
+       {
+           name: "song3",
+           song: "nashe si chad gayi",
+           artist: "arijit singh",
+           image : "nscg",
+       }
+    ]
+    let songnum=0
+const loadsong = (song) =>{
+    songname.textContent = song.song;
+    artist.textContent = song.artist;
+    music.src="music/"+song.name+".mp3";
+    image.src="images/"+song.image+".jpg";
+};
+  songnum= 0;
+const nextsong = () =>{
+    songnum= (songnum + 1)%songdata.length;
+    loadsong(songdata[songnum]);
+    playmusic(); 
+};
+const prevsong = () =>{
+    songnum= (songnum - 1 + songdata.length)%songdata.length;
+    loadsong(songdata[songnum]);
+    playmusic(); 
+};
+
+ next.addEventListener("click",nextsong);
+ previous.addEventListener("click",prevsong);
+
+const loopon = () => {
+       music.loop= true;
+       loop.style.backgroundColor = "white";
+       loop.style.color="black";
+    //    alert("music on loop");
+       inloop= true;
+};
+const loopof = () => {
+       music.loop= false;
+       loop.style.backgroundColor = "transparent";
+       loop.style.color="white";
+       inloop= false;
+
+};
+loops.addEventListener("click",() =>{
+    if(inloop)
+    {
+        loopof();
+    }
+    else{
+        loopon();
+    }
+});
+const shuffleon = () => {
+    inshuffle= true;
+    shuffle.style.backgroundColor = "white";
+    shuffle.style.color="black";
+    songnum=Math.floor(Math.random() * 3);
+};
+const shuffleof = () => {
+    inshuffle= false;
+    songnum= (songnum + 1)%songdata.length;
+    shuffle.style.backgroundColor = "transparent";
+    shuffle.style.color="white";
+
+};
+shuffle.addEventListener("click", () =>{
+    if(inshuffle)
+    {
+        shuffleof();
+    }
+    else
+    {
+        shuffleon();
+    }
+})
+    </script>
+
+
+</body>
+</html>

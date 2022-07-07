@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(195, 205, 219,0.9));
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 90%;
+    text-transform: capitalize;
+    /* background-repeat: no-repeat;
+    background-size: 100% 100%; */
+}
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.player{
+    width: 20rem;
+    height: 40rem;
+    background:linear-gradient(rgba(121, 0, 125,0.7),rgba(0,0,0,0.9)40%);
+    border-radius: 1.5rem;
+    box-shadow: 2px 2px 10px 10px #ffffff ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+.controls{
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.main_controls{
+    margin: auto;
+    color: #ffffff;
+    font-size: 3rem;
+    width: 80%;
+    height: 10%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+#songimg{
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 10px 1px #ffffff ;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+.title{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    margin: auto;
+}
+.title h3{
+    font-weight: lighter;
+    padding-top: 0.5rem;
+}
+#play{
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    color: black;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#loop{
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: xx-small;
+    border-radius: 50%;
+    margin-left: 80%; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: large;
+}
+.main_controls i{
+    cursor: pointer;
+    font-size: x-large;
+}
+.extra{
+   width: 90%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: large;
+}
+
+.extra i{
+    cursor: pointer;
+}
+#shuffle{
+
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
